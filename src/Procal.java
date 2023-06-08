@@ -1,27 +1,41 @@
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import javax.swing.JButton;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-import javax.swing.JButton;
 /**
  *
  * @author KENZIE
  */
 public class Procal extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form Procal
      */
+    
+    double num,ans;
+    int calculate;
     public Procal() {
         initComponents();
     }
 
+    public void arithmetic_OP(){
+        switch (calculate){
+            case 1:
+                ans= num + Double.parseDouble(TextInput.getText());
+                TextInput.setText(Double.toString(ans));
+                break;
+            case 2:
+                ans= num - Double.parseDouble(TextInput.getText());
+                TextInput.setText(Double.toString(ans));
+                break;
+            case 3:
+                ans= num * Double.parseDouble(TextInput.getText());
+                TextInput.setText(Double.toString(ans));
+                break;
+            case 4:
+                ans= num / Double.parseDouble(TextInput.getText());
+                TextInput.setText(Double.toString(ans));
+                break;    
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -69,6 +83,7 @@ public class Procal extends javax.swing.JFrame {
         DeciButton = new javax.swing.JButton();
         GTEQButton = new javax.swing.JButton();
         ModulusButton = new javax.swing.JButton();
+        Stored = new javax.swing.JLabel();
 
         jButton13.setText("jButton1");
         jButton13.setMaximumSize(new java.awt.Dimension(29, 25));
@@ -104,6 +119,8 @@ public class Procal extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 51));
 
+        TextInput.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        TextInput.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         TextInput.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 204, 255), 4, true));
 
         DeleteButton.setBackground(new java.awt.Color(102, 0, 0));
@@ -136,11 +153,6 @@ public class Procal extends javax.swing.JFrame {
         NotEqualButton.setForeground(new java.awt.Color(255, 255, 255));
         NotEqualButton.setText("!=");
         NotEqualButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 51, 0), 3, true));
-        NotEqualButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
-            }
-        });
 
         MultiplicationButton.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         MultiplicationButton.setText("*");
@@ -149,7 +161,7 @@ public class Procal extends javax.swing.JFrame {
         MultiplicationButton.setPreferredSize(new java.awt.Dimension(29, 25));
         MultiplicationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
+                MultiplicationButtonActionPerformed(evt);
             }
         });
 
@@ -158,11 +170,6 @@ public class Procal extends javax.swing.JFrame {
         EqualsButton.setForeground(new java.awt.Color(255, 255, 255));
         EqualsButton.setText("==");
         EqualsButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 51, 0), 3, true));
-        EqualsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
-            }
-        });
 
         Parenthesis.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         Parenthesis.setText("()");
@@ -182,7 +189,7 @@ public class Procal extends javax.swing.JFrame {
         EightButton.setPreferredSize(new java.awt.Dimension(29, 25));
         EightButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
+                EightButtonActionPerformed(evt);
             }
         });
 
@@ -193,7 +200,7 @@ public class Procal extends javax.swing.JFrame {
         SevenButton.setPreferredSize(new java.awt.Dimension(29, 25));
         SevenButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
+                SevenButtonActionPerformed(evt);
             }
         });
 
@@ -205,11 +212,6 @@ public class Procal extends javax.swing.JFrame {
         LTButton.setMaximumSize(new java.awt.Dimension(29, 25));
         LTButton.setMinimumSize(new java.awt.Dimension(29, 25));
         LTButton.setPreferredSize(new java.awt.Dimension(29, 25));
-        LTButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
-            }
-        });
 
         NineButton.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         NineButton.setText("9");
@@ -218,7 +220,7 @@ public class Procal extends javax.swing.JFrame {
         NineButton.setPreferredSize(new java.awt.Dimension(29, 25));
         NineButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
+                NineButtonActionPerformed(evt);
             }
         });
 
@@ -227,11 +229,6 @@ public class Procal extends javax.swing.JFrame {
         ANDButton.setForeground(new java.awt.Color(255, 255, 255));
         ANDButton.setText("&&");
         ANDButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 0, 102), 3, true));
-        ANDButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
-            }
-        });
 
         DivideButton.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         DivideButton.setText("/");
@@ -240,7 +237,7 @@ public class Procal extends javax.swing.JFrame {
         DivideButton.setPreferredSize(new java.awt.Dimension(29, 25));
         DivideButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
+                DivideButtonActionPerformed(evt);
             }
         });
 
@@ -249,11 +246,6 @@ public class Procal extends javax.swing.JFrame {
         ORButton.setForeground(new java.awt.Color(255, 255, 255));
         ORButton.setText("||");
         ORButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 0, 102), 3, true));
-        ORButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
-            }
-        });
 
         AdditionButton.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         AdditionButton.setText("+");
@@ -262,7 +254,7 @@ public class Procal extends javax.swing.JFrame {
         AdditionButton.setPreferredSize(new java.awt.Dimension(29, 25));
         AdditionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
+                AdditionButtonActionPerformed(evt);
             }
         });
 
@@ -273,7 +265,7 @@ public class Procal extends javax.swing.JFrame {
         FiveButton.setPreferredSize(new java.awt.Dimension(29, 25));
         FiveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
+                FiveButtonActionPerformed(evt);
             }
         });
 
@@ -284,7 +276,7 @@ public class Procal extends javax.swing.JFrame {
         FourButton.setPreferredSize(new java.awt.Dimension(29, 25));
         FourButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
+                FourButtonActionPerformed(evt);
             }
         });
 
@@ -293,11 +285,6 @@ public class Procal extends javax.swing.JFrame {
         LTEQButton.setForeground(new java.awt.Color(255, 255, 255));
         LTEQButton.setText("<=");
         LTEQButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 51, 0), 3, true));
-        LTEQButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
-            }
-        });
 
         SixButton.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         SixButton.setText("6");
@@ -306,7 +293,7 @@ public class Procal extends javax.swing.JFrame {
         SixButton.setPreferredSize(new java.awt.Dimension(29, 25));
         SixButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
+                SixButtonActionPerformed(evt);
             }
         });
 
@@ -318,21 +305,15 @@ public class Procal extends javax.swing.JFrame {
         BitwiseButton.setMaximumSize(new java.awt.Dimension(29, 25));
         BitwiseButton.setMinimumSize(new java.awt.Dimension(29, 25));
         BitwiseButton.setPreferredSize(new java.awt.Dimension(29, 25));
-        BitwiseButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
-            }
-        });
 
         SubtrationButton.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         SubtrationButton.setText("-");
-        SubtrationButton.setActionCommand("-");
         SubtrationButton.setMaximumSize(new java.awt.Dimension(29, 25));
         SubtrationButton.setMinimumSize(new java.awt.Dimension(29, 25));
         SubtrationButton.setPreferredSize(new java.awt.Dimension(29, 25));
         SubtrationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
+                SubtrationButtonActionPerformed(evt);
             }
         });
 
@@ -343,7 +324,7 @@ public class Procal extends javax.swing.JFrame {
         TwoButton.setPreferredSize(new java.awt.Dimension(29, 25));
         TwoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
+                TwoButtonActionPerformed(evt);
             }
         });
 
@@ -354,7 +335,7 @@ public class Procal extends javax.swing.JFrame {
         OneButton.setPreferredSize(new java.awt.Dimension(29, 25));
         OneButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
+                OneButtonActionPerformed(evt);
             }
         });
 
@@ -366,11 +347,6 @@ public class Procal extends javax.swing.JFrame {
         GTButton.setMaximumSize(new java.awt.Dimension(29, 25));
         GTButton.setMinimumSize(new java.awt.Dimension(29, 25));
         GTButton.setPreferredSize(new java.awt.Dimension(29, 25));
-        GTButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
-            }
-        });
 
         ThreeButton.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         ThreeButton.setText("3");
@@ -379,7 +355,7 @@ public class Procal extends javax.swing.JFrame {
         ThreeButton.setPreferredSize(new java.awt.Dimension(29, 25));
         ThreeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
+                ThreeButtonActionPerformed(evt);
             }
         });
 
@@ -391,11 +367,6 @@ public class Procal extends javax.swing.JFrame {
         NotButton.setMaximumSize(new java.awt.Dimension(29, 25));
         NotButton.setMinimumSize(new java.awt.Dimension(29, 25));
         NotButton.setPreferredSize(new java.awt.Dimension(29, 25));
-        NotButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
-            }
-        });
 
         EqualButton.setBackground(new java.awt.Color(0, 0, 102));
         EqualButton.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
@@ -407,7 +378,7 @@ public class Procal extends javax.swing.JFrame {
         EqualButton.setPreferredSize(new java.awt.Dimension(29, 25));
         EqualButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ValueOutput(evt);
+                EqualButtonActionPerformed(evt);
             }
         });
 
@@ -418,7 +389,7 @@ public class Procal extends javax.swing.JFrame {
         ZeroButton.setPreferredSize(new java.awt.Dimension(29, 25));
         ZeroButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
+                ZeroButtonActionPerformed(evt);
             }
         });
 
@@ -429,7 +400,7 @@ public class Procal extends javax.swing.JFrame {
         DeciButton.setPreferredSize(new java.awt.Dimension(29, 25));
         DeciButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
+                DeciButtonActionPerformed(evt);
             }
         });
 
@@ -438,11 +409,6 @@ public class Procal extends javax.swing.JFrame {
         GTEQButton.setForeground(new java.awt.Color(255, 255, 255));
         GTEQButton.setText(">=");
         GTEQButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 51, 0), 3, true));
-        GTEQButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
-            }
-        });
 
         ModulusButton.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         ModulusButton.setText("%");
@@ -451,9 +417,13 @@ public class Procal extends javax.swing.JFrame {
         ModulusButton.setPreferredSize(new java.awt.Dimension(29, 25));
         ModulusButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAction(evt);
+                ModulusButtonActionPerformed(evt);
             }
         });
+
+        Stored.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Stored.setForeground(new java.awt.Color(255, 0, 0));
+        Stored.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -524,11 +494,17 @@ public class Procal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(EqualButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Stored, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap()
+                .addComponent(Stored, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TextInput, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -570,7 +546,7 @@ public class Procal extends javax.swing.JFrame {
                     .addComponent(ModulusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NotButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EqualButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -581,17 +557,15 @@ public class Procal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ButtonAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAction
-        JButton booth = (JButton) evt.getSource();
-        TextInput.setText(TextInput.getText() + booth.getText());
-    }//GEN-LAST:event_ButtonAction
-
+    
+    
     private boolean isParenthesisEqual(String text){
         int balanceFactor = 0;
         for(int i = 0; i<text.length(); i++){
@@ -630,39 +604,86 @@ public class Procal extends javax.swing.JFrame {
         TextInput.setText(TextInput.getText().substring(0,TextInput.getText().length()-1));
     }//GEN-LAST:event_DeleteInput
 
-//    private String[] removeEmpty(String[] str){
-//        int strLength = 0;
-//        for(String s: str){
-//            if(s.isEmpty())
-//                continue;
-//            strLength++;
-//        }
-//        String[] newStr = new String[strLength];
-//        int strIndex = 0;
-//        
-//        for(String s: str){
-//            if(s.isEmpty())
-//                continue;
-//            newStr[strIndex] = s;
-//            strIndex++;
-//        }
-//        return newStr;
-//    }
-    private void ValueOutput(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValueOutput
-        String Artm = TextInput.getText();
-        ArrayList<String> n = new ArrayList<>(Arrays.asList(Artm.split("[^0-9]")));
-        ArrayList<String> o = new ArrayList<>(Arrays.asList(Artm.split("[0-9]")));
-        
-        // Removes all empty items
-        n.removeAll(Arrays.asList(""));
-        o.removeAll(Arrays.asList(""));
-        
-        
-        while(n.size()> 1){
-            
-        }
+    private void OneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OneButtonActionPerformed
+        TextInput.setText(TextInput.getText() + "1");
+    }//GEN-LAST:event_OneButtonActionPerformed
 
-    }//GEN-LAST:event_ValueOutput
+    private void TwoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TwoButtonActionPerformed
+        TextInput.setText(TextInput.getText() + "2");
+    }//GEN-LAST:event_TwoButtonActionPerformed
+
+    private void ThreeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThreeButtonActionPerformed
+        TextInput.setText(TextInput.getText() + "3");
+    }//GEN-LAST:event_ThreeButtonActionPerformed
+
+    private void FourButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FourButtonActionPerformed
+        TextInput.setText(TextInput.getText() + "4");
+    }//GEN-LAST:event_FourButtonActionPerformed
+
+    private void FiveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiveButtonActionPerformed
+        TextInput.setText(TextInput.getText() + "5");
+    }//GEN-LAST:event_FiveButtonActionPerformed
+
+    private void SixButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SixButtonActionPerformed
+        TextInput.setText(TextInput.getText() + "6");
+    }//GEN-LAST:event_SixButtonActionPerformed
+
+    private void SevenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SevenButtonActionPerformed
+        TextInput.setText(TextInput.getText() + "7");
+    }//GEN-LAST:event_SevenButtonActionPerformed
+
+    private void EightButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EightButtonActionPerformed
+        TextInput.setText(TextInput.getText() + "8");
+    }//GEN-LAST:event_EightButtonActionPerformed
+
+    private void NineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NineButtonActionPerformed
+        TextInput.setText(TextInput.getText() + "9");
+    }//GEN-LAST:event_NineButtonActionPerformed
+
+    private void ZeroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZeroButtonActionPerformed
+        TextInput.setText(TextInput.getText() + "0");
+    }//GEN-LAST:event_ZeroButtonActionPerformed
+
+    private void DeciButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeciButtonActionPerformed
+        TextInput.setText(TextInput.getText() + ".");
+    }//GEN-LAST:event_DeciButtonActionPerformed
+
+    private void ModulusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModulusButtonActionPerformed
+        TextInput.setText(TextInput.getText() + "%");
+    }//GEN-LAST:event_ModulusButtonActionPerformed
+
+    private void MultiplicationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MultiplicationButtonActionPerformed
+        num = Double.parseDouble(TextInput.getText());
+        calculate =3;
+        TextInput.setText("");
+        Stored.setText(num + "*");
+    }//GEN-LAST:event_MultiplicationButtonActionPerformed
+
+    private void DivideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DivideButtonActionPerformed
+        num = Double.parseDouble(TextInput.getText());
+        calculate =4;
+        TextInput.setText("");
+        Stored.setText(num + "/");
+    }//GEN-LAST:event_DivideButtonActionPerformed
+
+    private void AdditionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdditionButtonActionPerformed
+        num = Double.parseDouble(TextInput.getText());
+        calculate =1;
+        TextInput.setText("");
+        Stored.setText(num + "+");
+    }//GEN-LAST:event_AdditionButtonActionPerformed
+
+    private void SubtrationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubtrationButtonActionPerformed
+        num = Double.parseDouble(TextInput.getText());
+        calculate =2;
+        TextInput.setText("");
+        Stored.setText(num + "-");
+    }//GEN-LAST:event_SubtrationButtonActionPerformed
+
+    private void EqualButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EqualButtonActionPerformed
+       arithmetic_OP();
+       Stored.setText("");
+    }//GEN-LAST:event_EqualButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -726,6 +747,7 @@ public class Procal extends javax.swing.JFrame {
     private javax.swing.JButton Parenthesis;
     private javax.swing.JButton SevenButton;
     private javax.swing.JButton SixButton;
+    private javax.swing.JLabel Stored;
     private javax.swing.JButton SubtrationButton;
     private javax.swing.JTextField TextInput;
     private javax.swing.JButton ThreeButton;

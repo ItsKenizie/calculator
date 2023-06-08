@@ -114,7 +114,10 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -201,12 +204,19 @@
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="Stored" min="-2" pref="115" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="Stored" min="-2" pref="21" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="TextInput" min="-2" pref="54" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -253,7 +263,7 @@
                       <Component id="NotButton" alignment="3" min="-2" pref="64" max="-2" attributes="0"/>
                       <Component id="EqualButton" alignment="3" min="-2" pref="64" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="23" max="32767" attributes="0"/>
+                  <EmptySpace pref="25" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -261,6 +271,10 @@
       <SubComponents>
         <Component class="javax.swing.JTextField" name="TextInput">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="24" style="0"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder roundedCorners="true" thickness="4">
@@ -347,9 +361,6 @@
               </Border>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="MultiplicationButton">
           <Properties>
@@ -368,7 +379,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MultiplicationButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="EqualsButton">
@@ -391,9 +402,6 @@
               </Border>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="Parenthesis">
           <Properties>
@@ -432,7 +440,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EightButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="SevenButton">
@@ -452,7 +460,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SevenButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="LTButton">
@@ -484,9 +492,6 @@
               <Dimension value="[29, 25]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="NineButton">
           <Properties>
@@ -505,7 +510,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NineButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="ANDButton">
@@ -528,9 +533,6 @@
               </Border>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="DivideButton">
           <Properties>
@@ -549,7 +551,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DivideButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="ORButton">
@@ -572,9 +574,6 @@
               </Border>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="AdditionButton">
           <Properties>
@@ -593,7 +592,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AdditionButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="FiveButton">
@@ -613,7 +612,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FiveButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="FourButton">
@@ -633,7 +632,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FourButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="LTEQButton">
@@ -656,9 +655,6 @@
               </Border>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="SixButton">
           <Properties>
@@ -677,7 +673,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SixButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BitwiseButton">
@@ -709,9 +705,6 @@
               <Dimension value="[29, 25]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="SubtrationButton">
           <Properties>
@@ -719,7 +712,6 @@
               <Font name="Lucida Console" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="-"/>
-            <Property name="actionCommand" type="java.lang.String" value="-"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[29, 25]"/>
             </Property>
@@ -731,7 +723,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SubtrationButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="TwoButton">
@@ -751,7 +743,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TwoButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="OneButton">
@@ -771,7 +763,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OneButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="GTButton">
@@ -803,9 +795,6 @@
               <Dimension value="[29, 25]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="ThreeButton">
           <Properties>
@@ -824,7 +813,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ThreeButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="NotButton">
@@ -856,9 +845,6 @@
               <Dimension value="[29, 25]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="EqualButton">
           <Properties>
@@ -890,7 +876,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ValueOutput"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EqualButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="ZeroButton">
@@ -910,7 +896,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ZeroButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="DeciButton">
@@ -930,7 +916,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DeciButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="GTEQButton">
@@ -953,9 +939,6 @@
               </Border>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="ModulusButton">
           <Properties>
@@ -974,8 +957,19 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAction"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModulusButtonActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="Stored">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
