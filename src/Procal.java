@@ -921,7 +921,6 @@ public class Procal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_MinusminusParthesisAction
 
-   
     private void LTButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LTButtonActionPerformed
         firstnum = TextInput.getText();
         TextInput.setText(" ");
