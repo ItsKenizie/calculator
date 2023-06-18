@@ -415,6 +415,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NotEqualButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="MultiplicationButton">
           <Properties>
@@ -456,6 +459,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EqualsButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="Parenthesis">
           <Properties>
@@ -546,6 +552,9 @@
               <Dimension value="[29, 25]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LTButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="NineButton">
           <Properties>
@@ -709,6 +718,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LTEQButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="SixButton">
           <Properties>
@@ -849,6 +861,9 @@
               <Dimension value="[29, 25]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GTButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="ThreeButton">
           <Properties>
@@ -993,6 +1008,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GTEQButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="ModulusButton">
           <Properties>
