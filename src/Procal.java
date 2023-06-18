@@ -902,7 +902,7 @@ public class Procal extends javax.swing.JFrame {
         firstnum = Double.parseDouble(TextInput.getText());
         TextInput.setText(" ");
         operation = ">=";
-    }//GEN-LAST:event_GTEQButtonActionPerformed
+    }
 
     private void LTEQButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LTEQButtonActionPerformed
         firstnum = Double.parseDouble(TextInput.getText());
