@@ -6,35 +6,57 @@
 public class Procal extends javax.swing.JFrame {
 
     
-    /**
-     * Creates new form Procal
-     */
+ 
     
-    double num,ans;
-    int calculate;
+    double firstnum, secondnum, ans;
+    int calculate, calculate1;
+    int value1, value2, value3, value4;
+    String operation;
+    
     public Procal() {
         initComponents();
     }
-
-    public void arithmetic_OP(){
+   public void arithmetic_OP(){
         switch (calculate){
             case 1:
-                ans= num + Double.parseDouble(TextInput.getText());
+                ans= firstnum + Double.parseDouble(TextInput.getText());
                 TextInput.setText(Double.toString(ans));
                 break;
             case 2:
-                ans= num - Double.parseDouble(TextInput.getText());
+                ans= firstnum - Double.parseDouble(TextInput.getText());
                 TextInput.setText(Double.toString(ans));
                 break;
             case 3:
-                ans= num * Double.parseDouble(TextInput.getText());
+                ans= firstnum * Double.parseDouble(TextInput.getText());
                 TextInput.setText(Double.toString(ans));
                 break;
             case 4:
-                ans= num / Double.parseDouble(TextInput.getText());
+                ans= firstnum / Double.parseDouble(TextInput.getText());
                 TextInput.setText(Double.toString(ans));
                 break;    
         }
+    }
+    
+    public void relational_OP(){
+        if (operation == ">"){        
+                TextInput.setText(String.valueOf(firstnum > secondnum));
+        }
+        else if (operation == ">="){       
+                TextInput.setText(String.valueOf(firstnum >= secondnum));
+        }
+        else if (operation == "<"){
+                TextInput.setText(String.valueOf(firstnum < secondnum));        
+        }
+        else if (operation == "<="){
+                TextInput.setText(String.valueOf(firstnum <= secondnum));
+        }
+        else if (operation == "!="){
+                TextInput.setText(String.valueOf(firstnum != secondnum));
+        }
+        else if (operation == "=="){
+                TextInput.setText(String.valueOf(firstnum == secondnum));
+        }
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,6 +73,7 @@ public class Procal extends javax.swing.JFrame {
         jButton16 = new javax.swing.JButton();
         jButton17 = new javax.swing.JButton();
         jButton18 = new javax.swing.JButton();
+        Parenthesis1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         TextInput = new javax.swing.JTextField();
         DeleteButton = new javax.swing.JButton();
@@ -84,6 +107,13 @@ public class Procal extends javax.swing.JFrame {
         GTEQButton = new javax.swing.JButton();
         ModulusButton = new javax.swing.JButton();
         Stored = new javax.swing.JLabel();
+        PlusEqual = new javax.swing.JButton();
+        MinusEqual = new javax.swing.JButton();
+        MultiplyEqual = new javax.swing.JButton();
+        DivisionEqual = new javax.swing.JButton();
+        ModuloEqual = new javax.swing.JButton();
+        Plusplus = new javax.swing.JButton();
+        Minusminus = new javax.swing.JButton();
 
         jButton13.setText("jButton1");
         jButton13.setMaximumSize(new java.awt.Dimension(29, 25));
@@ -114,6 +144,17 @@ public class Procal extends javax.swing.JFrame {
         jButton18.setMaximumSize(new java.awt.Dimension(29, 25));
         jButton18.setMinimumSize(new java.awt.Dimension(29, 25));
         jButton18.setPreferredSize(new java.awt.Dimension(29, 25));
+
+        Parenthesis1.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
+        Parenthesis1.setText("()");
+        Parenthesis1.setMaximumSize(new java.awt.Dimension(29, 25));
+        Parenthesis1.setMinimumSize(new java.awt.Dimension(29, 25));
+        Parenthesis1.setPreferredSize(new java.awt.Dimension(29, 25));
+        Parenthesis1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Parenthesis1ParthesisAction(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -425,6 +466,97 @@ public class Procal extends javax.swing.JFrame {
         Stored.setForeground(new java.awt.Color(255, 0, 0));
         Stored.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
+        PlusEqual.setBackground(new java.awt.Color(0, 204, 51));
+        PlusEqual.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
+        PlusEqual.setText("+=");
+        PlusEqual.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 51), 3, true));
+        PlusEqual.setMaximumSize(new java.awt.Dimension(29, 25));
+        PlusEqual.setMinimumSize(new java.awt.Dimension(29, 25));
+        PlusEqual.setPreferredSize(new java.awt.Dimension(29, 25));
+        PlusEqual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PlusEqualParthesisAction(evt);
+            }
+        });
+
+        MinusEqual.setBackground(new java.awt.Color(0, 204, 51));
+        MinusEqual.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
+        MinusEqual.setText("-=");
+        MinusEqual.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 51), 3, true));
+        MinusEqual.setMaximumSize(new java.awt.Dimension(29, 25));
+        MinusEqual.setMinimumSize(new java.awt.Dimension(29, 25));
+        MinusEqual.setPreferredSize(new java.awt.Dimension(29, 25));
+        MinusEqual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MinusEqualParthesisAction(evt);
+            }
+        });
+
+        MultiplyEqual.setBackground(new java.awt.Color(0, 204, 51));
+        MultiplyEqual.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
+        MultiplyEqual.setText("*=");
+        MultiplyEqual.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 51), 3, true));
+        MultiplyEqual.setMaximumSize(new java.awt.Dimension(29, 25));
+        MultiplyEqual.setMinimumSize(new java.awt.Dimension(29, 25));
+        MultiplyEqual.setPreferredSize(new java.awt.Dimension(29, 25));
+        MultiplyEqual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MultiplyEqualParthesisAction(evt);
+            }
+        });
+
+        DivisionEqual.setBackground(new java.awt.Color(0, 204, 51));
+        DivisionEqual.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
+        DivisionEqual.setText("/=");
+        DivisionEqual.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 51), 3, true));
+        DivisionEqual.setMaximumSize(new java.awt.Dimension(29, 25));
+        DivisionEqual.setMinimumSize(new java.awt.Dimension(29, 25));
+        DivisionEqual.setPreferredSize(new java.awt.Dimension(29, 25));
+        DivisionEqual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DivisionEqualParthesisAction(evt);
+            }
+        });
+
+        ModuloEqual.setBackground(new java.awt.Color(0, 204, 51));
+        ModuloEqual.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
+        ModuloEqual.setText("%=");
+        ModuloEqual.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 51), 3, true));
+        ModuloEqual.setMaximumSize(new java.awt.Dimension(29, 25));
+        ModuloEqual.setMinimumSize(new java.awt.Dimension(29, 25));
+        ModuloEqual.setPreferredSize(new java.awt.Dimension(29, 25));
+        ModuloEqual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModuloEqualParthesisAction(evt);
+            }
+        });
+
+        Plusplus.setBackground(new java.awt.Color(0, 204, 51));
+        Plusplus.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
+        Plusplus.setText("++");
+        Plusplus.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 51), 3, true));
+        Plusplus.setMaximumSize(new java.awt.Dimension(29, 25));
+        Plusplus.setMinimumSize(new java.awt.Dimension(29, 25));
+        Plusplus.setPreferredSize(new java.awt.Dimension(29, 25));
+        Plusplus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PlusplusParthesisAction(evt);
+            }
+        });
+
+        Minusminus.setBackground(new java.awt.Color(0, 204, 51));
+        Minusminus.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
+        Minusminus.setText("--");
+        Minusminus.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 51), 3, true));
+        Minusminus.setMaximumSize(new java.awt.Dimension(29, 25));
+        Minusminus.setMinimumSize(new java.awt.Dimension(29, 25));
+        Minusminus.setPreferredSize(new java.awt.Dimension(29, 25));
+        Minusminus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MinusminusParthesisAction(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -432,72 +564,91 @@ public class Procal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TextInput, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(Stored, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(AllClearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(MultiplicationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(NotEqualButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(EqualsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Parenthesis, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(SevenButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(EightButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(NineButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(LTButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ANDButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DivideButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(FourButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(FiveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SixButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(LTEQButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ORButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(AdditionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(OneButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TwoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ThreeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(GTButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BitwiseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SubtrationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(DeciButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ZeroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ModulusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(GTEQButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(NotButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(EqualButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Stored, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(FourButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(FiveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(SixButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(LTEQButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(ORButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(AdditionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(OneButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(TwoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(ThreeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(GTButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(BitwiseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(SubtrationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(ZeroButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(ModulusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(GTEQButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(NotButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(MultiplicationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(DeciButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Minusminus, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(ModuloEqual, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Plusplus, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(EqualButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(SevenButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(EightButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(NineButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(LTButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ANDButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(DivideButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(MultiplyEqual, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(DivisionEqual, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(TextInput)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(AllClearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(DeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(NotEqualButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(EqualsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(Parenthesis, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(PlusEqual, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(MinusEqual, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -511,9 +662,10 @@ public class Procal extends javax.swing.JFrame {
                     .addComponent(AllClearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NotEqualButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MultiplicationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EqualsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Parenthesis, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Parenthesis, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PlusEqual, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MinusEqual, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SevenButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -521,7 +673,9 @@ public class Procal extends javax.swing.JFrame {
                     .addComponent(LTButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NineButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ANDButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DivideButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DivideButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MultiplyEqual, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DivisionEqual, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(FourButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -529,7 +683,9 @@ public class Procal extends javax.swing.JFrame {
                     .addComponent(LTEQButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SixButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ORButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AdditionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AdditionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ModuloEqual, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Plusplus, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(OneButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -537,16 +693,18 @@ public class Procal extends javax.swing.JFrame {
                     .addComponent(GTButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ThreeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BitwiseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SubtrationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SubtrationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DeciButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Minusminus, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DeciButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ZeroButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(GTEQButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ModulusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NotButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EqualButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                    .addComponent(EqualButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MultiplicationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -576,33 +734,51 @@ public class Procal extends javax.swing.JFrame {
         }
         return balanceFactor == 0;
     }
-    private void ParthesisAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ParthesisAction
-       String textInputText = TextInput.getText();
-       if(textInputText.isEmpty()){
-           TextInput.setText("(");
-           return;
-       }
-       Boolean isParenEqual = isParenthesisEqual(textInputText);
-       String prtlogic = TextInput.getText().substring(TextInput.getText().length()-1);
-       if(isParenEqual){
-           TextInput.setText(TextInput.getText() + "*(");
-       } else if(prtlogic.matches("[0-9]") && !isParenEqual){
-           TextInput.setText(TextInput.getText() + ")");
-       } else if(prtlogic.matches("[^0-9\\)]") && !isParenEqual){
-            TextInput.setText(TextInput.getText() + "(");
-       } else {
-            TextInput.setText(TextInput.getText() + ")");
+    private void Parenthesis1ParthesisAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Parenthesis1ParthesisAction
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Parenthesis1ParthesisAction
 
-       }
-    }//GEN-LAST:event_ParthesisAction
+    private void ModuloEqualParthesisAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModuloEqualParthesisAction
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ModuloEqualParthesisAction
 
-    private void AllClear(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllClear
-        TextInput.setText("");
-    }//GEN-LAST:event_AllClear
+    private void DivisionEqualParthesisAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DivisionEqualParthesisAction
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DivisionEqualParthesisAction
 
-    private void DeleteInput(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteInput
-        TextInput.setText(TextInput.getText().substring(0,TextInput.getText().length()-1));
-    }//GEN-LAST:event_DeleteInput
+    private void MultiplyEqualParthesisAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MultiplyEqualParthesisAction
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MultiplyEqualParthesisAction
+
+    private void MinusEqualParthesisAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinusEqualParthesisAction
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MinusEqualParthesisAction
+
+    private void PlusEqualParthesisAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlusEqualParthesisAction
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PlusEqualParthesisAction
+
+    private void ModulusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModulusButtonActionPerformed
+        TextInput.setText(TextInput.getText() + "%");
+    }//GEN-LAST:event_ModulusButtonActionPerformed
+
+    private void DeciButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeciButtonActionPerformed
+        TextInput.setText(TextInput.getText() + ".");
+    }//GEN-LAST:event_DeciButtonActionPerformed
+
+    private void ZeroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZeroButtonActionPerformed
+        TextInput.setText(TextInput.getText() + "0");
+    }//GEN-LAST:event_ZeroButtonActionPerformed
+
+    private void EqualButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EqualButtonActionPerformed
+        arithmetic_OP();
+        relational_OP();
+        Stored.setText("");
+    }//GEN-LAST:event_EqualButtonActionPerformed
+
+    private void ThreeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThreeButtonActionPerformed
+        TextInput.setText(TextInput.getText() + "3");
+    }//GEN-LAST:event_ThreeButtonActionPerformed
 
     private void OneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OneButtonActionPerformed
         TextInput.setText(TextInput.getText() + "1");
@@ -612,9 +788,16 @@ public class Procal extends javax.swing.JFrame {
         TextInput.setText(TextInput.getText() + "2");
     }//GEN-LAST:event_TwoButtonActionPerformed
 
-    private void ThreeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThreeButtonActionPerformed
-        TextInput.setText(TextInput.getText() + "3");
-    }//GEN-LAST:event_ThreeButtonActionPerformed
+    private void SubtrationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubtrationButtonActionPerformed
+        firstnum = Double.parseDouble(TextInput.getText());
+        calculate =2;
+        TextInput.setText("");
+        Stored.setText(firstnum + "-");
+    }//GEN-LAST:event_SubtrationButtonActionPerformed
+
+    private void SixButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SixButtonActionPerformed
+        TextInput.setText(TextInput.getText() + "6");
+    }//GEN-LAST:event_SixButtonActionPerformed
 
     private void FourButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FourButtonActionPerformed
         TextInput.setText(TextInput.getText() + "4");
@@ -624,9 +807,23 @@ public class Procal extends javax.swing.JFrame {
         TextInput.setText(TextInput.getText() + "5");
     }//GEN-LAST:event_FiveButtonActionPerformed
 
-    private void SixButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SixButtonActionPerformed
-        TextInput.setText(TextInput.getText() + "6");
-    }//GEN-LAST:event_SixButtonActionPerformed
+    private void AdditionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdditionButtonActionPerformed
+        firstnum = Double.parseDouble(TextInput.getText());
+        calculate =1;
+        TextInput.setText("");
+        Stored.setText(firstnum + "+");
+    }//GEN-LAST:event_AdditionButtonActionPerformed
+
+    private void DivideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DivideButtonActionPerformed
+        firstnum = Double.parseDouble(TextInput.getText());
+        calculate =4;
+        TextInput.setText("");
+        Stored.setText(firstnum + "/");
+    }//GEN-LAST:event_DivideButtonActionPerformed
+
+    private void NineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NineButtonActionPerformed
+        TextInput.setText(TextInput.getText() + "9");
+    }//GEN-LAST:event_NineButtonActionPerformed
 
     private void SevenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SevenButtonActionPerformed
         TextInput.setText(TextInput.getText() + "7");
@@ -636,54 +833,82 @@ public class Procal extends javax.swing.JFrame {
         TextInput.setText(TextInput.getText() + "8");
     }//GEN-LAST:event_EightButtonActionPerformed
 
-    private void NineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NineButtonActionPerformed
-        TextInput.setText(TextInput.getText() + "9");
-    }//GEN-LAST:event_NineButtonActionPerformed
+    private void ParthesisAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ParthesisAction
+        String textInputText = TextInput.getText();
+        if(textInputText.isEmpty()){
+            TextInput.setText("(");
+            return;
+        }
+        Boolean isParenEqual = isParenthesisEqual(textInputText);
+        String prtlogic = TextInput.getText().substring(TextInput.getText().length()-1);
+        if(isParenEqual){
+            TextInput.setText(TextInput.getText() + "*(");
+        } else if(prtlogic.matches("[0-9]") && !isParenEqual){
+            TextInput.setText(TextInput.getText() + ")");
+        } else if(prtlogic.matches("[^0-9\\)]") && !isParenEqual){
+            TextInput.setText(TextInput.getText() + "(");
+        } else {
+            TextInput.setText(TextInput.getText() + ")");
 
-    private void ZeroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZeroButtonActionPerformed
-        TextInput.setText(TextInput.getText() + "0");
-    }//GEN-LAST:event_ZeroButtonActionPerformed
-
-    private void DeciButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeciButtonActionPerformed
-        TextInput.setText(TextInput.getText() + ".");
-    }//GEN-LAST:event_DeciButtonActionPerformed
-
-    private void ModulusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModulusButtonActionPerformed
-        TextInput.setText(TextInput.getText() + "%");
-    }//GEN-LAST:event_ModulusButtonActionPerformed
+        }
+    }//GEN-LAST:event_ParthesisAction
 
     private void MultiplicationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MultiplicationButtonActionPerformed
-        num = Double.parseDouble(TextInput.getText());
+        firstnum = Double.parseDouble(TextInput.getText());
         calculate =3;
         TextInput.setText("");
-        Stored.setText(num + "*");
+        Stored.setText(firstnum + "*");
     }//GEN-LAST:event_MultiplicationButtonActionPerformed
 
-    private void DivideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DivideButtonActionPerformed
-        num = Double.parseDouble(TextInput.getText());
-        calculate =4;
+    private void AllClear(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllClear
         TextInput.setText("");
-        Stored.setText(num + "/");
-    }//GEN-LAST:event_DivideButtonActionPerformed
+    }//GEN-LAST:event_AllClear
 
-    private void AdditionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdditionButtonActionPerformed
-        num = Double.parseDouble(TextInput.getText());
-        calculate =1;
-        TextInput.setText("");
-        Stored.setText(num + "+");
-    }//GEN-LAST:event_AdditionButtonActionPerformed
+    private void DeleteInput(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteInput
+        int length = TextInput.getText().length();
+        int number = TextInput.getText().length() - 1;
+        String store;
 
-    private void SubtrationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubtrationButtonActionPerformed
-        num = Double.parseDouble(TextInput.getText());
-        calculate =2;
-        TextInput.setText("");
-        Stored.setText(num + "-");
-    }//GEN-LAST:event_SubtrationButtonActionPerformed
+        if(length > 0){
+            StringBuilder back = new StringBuilder(TextInput.getText());
+            back.deleteCharAt(number);
+            store = back.toString();
+            TextInput.setText(store);
+        }
+    }//GEN-LAST:event_DeleteInput
 
-    private void EqualButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EqualButtonActionPerformed
-       arithmetic_OP();
-       Stored.setText("");
-    }//GEN-LAST:event_EqualButtonActionPerformed
+    private void PlusplusParthesisAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlusplusParthesisAction
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PlusplusParthesisAction
+
+    private void MinusminusParthesisAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinusminusParthesisAction
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MinusminusParthesisAction
+
+   
+    private void LTButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LTButtonActionPerformed
+        firstnum = Double.parseDouble(TextInput.getText());
+        TextInput.setText(" ");
+        operation = "<";
+    }//GEN-LAST:event_LTButtonActionPerformed
+
+    private void GTButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GTButtonActionPerformed
+        firstnum = Double.parseDouble(TextInput.getText());
+        TextInput.setText(" ");
+        operation = ">";
+    }//GEN-LAST:event_GTButtonActionPerformed
+
+    private void GTEQButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GTEQButtonActionPerformed
+        firstnum = Double.parseDouble(TextInput.getText());
+        TextInput.setText(" ");
+        operation = ">=";
+    }//GEN-LAST:event_GTEQButtonActionPerformed
+
+    private void LTEQButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LTEQButtonActionPerformed
+        firstnum = Double.parseDouble(TextInput.getText());
+        TextInput.setText(" ");
+        operation = "<=";
+    }//GEN-LAST:event_LTEQButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -728,6 +953,7 @@ public class Procal extends javax.swing.JFrame {
     private javax.swing.JButton DeciButton;
     private javax.swing.JButton DeleteButton;
     private javax.swing.JButton DivideButton;
+    private javax.swing.JButton DivisionEqual;
     private javax.swing.JButton EightButton;
     private javax.swing.JButton EqualButton;
     private javax.swing.JButton EqualsButton;
@@ -737,14 +963,21 @@ public class Procal extends javax.swing.JFrame {
     private javax.swing.JButton GTEQButton;
     private javax.swing.JButton LTButton;
     private javax.swing.JButton LTEQButton;
+    private javax.swing.JButton MinusEqual;
+    private javax.swing.JButton Minusminus;
+    private javax.swing.JButton ModuloEqual;
     private javax.swing.JButton ModulusButton;
     private javax.swing.JButton MultiplicationButton;
+    private javax.swing.JButton MultiplyEqual;
     private javax.swing.JButton NineButton;
     private javax.swing.JButton NotButton;
     private javax.swing.JButton NotEqualButton;
     private javax.swing.JButton ORButton;
     private javax.swing.JButton OneButton;
     private javax.swing.JButton Parenthesis;
+    private javax.swing.JButton Parenthesis1;
+    private javax.swing.JButton PlusEqual;
+    private javax.swing.JButton Plusplus;
     private javax.swing.JButton SevenButton;
     private javax.swing.JButton SixButton;
     private javax.swing.JLabel Stored;
