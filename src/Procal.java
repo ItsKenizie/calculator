@@ -908,11 +908,9 @@ public class Procal extends javax.swing.JFrame {
         firstnum = Double.parseDouble(TextInput.getText());
         TextInput.setText(" ");
         operation = "<=";
-    }//GEN-LAST:event_LTEQButtonActionPerformed
+    }
 
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
