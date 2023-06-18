@@ -8,7 +8,7 @@ public class Procal extends javax.swing.JFrame {
     
  
     
-    double firstnum, secondnum, ans;
+    String firstnum, secondnum, ans;
     int calculate, calculate1;
     int value1, value2, value3, value4;
     String operation;
@@ -17,38 +17,44 @@ public class Procal extends javax.swing.JFrame {
         initComponents();
     }
    public void arithmetic_OP(){
+       secondnum = TextInput.getText();
         switch (calculate){
             case 1:
-                ans= firstnum + Double.parseDouble(TextInput.getText());
-                TextInput.setText(Double.toString(ans));
+                ans= String.valueOf(Double.valueOf(firstnum) + Double.valueOf(secondnum));
+                TextInput.setText(ans);
                 break;
             case 2:
-                ans= firstnum - Double.parseDouble(TextInput.getText());
-                TextInput.setText(Double.toString(ans));
+                ans= String.valueOf(Double.valueOf(firstnum) - Double.valueOf(secondnum));
+                TextInput.setText(ans);
                 break;
             case 3:
-                ans= firstnum * Double.parseDouble(TextInput.getText());
-                TextInput.setText(Double.toString(ans));
+                ans= String.valueOf(Double.valueOf(firstnum) * Double.valueOf(secondnum));
+                TextInput.setText(ans);
                 break;
             case 4:
-                ans= firstnum / Double.parseDouble(TextInput.getText());
-                TextInput.setText(Double.toString(ans));
-                break;    
+                ans= String.valueOf(Double.valueOf(firstnum) / Double.valueOf(secondnum));
+                TextInput.setText(ans);
+                break;
+            case 5:
+                ans= String.valueOf(Double.valueOf(firstnum) % Double.valueOf(secondnum));
+                TextInput.setText(ans);
+                break;  
         }
     }
     
     public void relational_OP(){
+        secondnum = TextInput.getText();
         if (operation == ">"){        
-                TextInput.setText(String.valueOf(firstnum > secondnum));
+                TextInput.setText(String.valueOf(Double.valueOf(firstnum) > Double.valueOf(secondnum)));
         }
         else if (operation == ">="){       
-                TextInput.setText(String.valueOf(firstnum >= secondnum));
+                TextInput.setText(String.valueOf(Double.valueOf(firstnum) >= Double.valueOf(secondnum)));
         }
         else if (operation == "<"){
-                TextInput.setText(String.valueOf(firstnum < secondnum));        
+                TextInput.setText(String.valueOf(Double.valueOf(firstnum) < Double.valueOf(secondnum)));        
         }
         else if (operation == "<="){
-                TextInput.setText(String.valueOf(firstnum <= secondnum));
+                TextInput.setText(String.valueOf(Double.valueOf(firstnum) <= Double.valueOf(secondnum)));
         }
         else if (operation == "!="){
                 TextInput.setText(String.valueOf(firstnum != secondnum));
@@ -194,6 +200,11 @@ public class Procal extends javax.swing.JFrame {
         NotEqualButton.setForeground(new java.awt.Color(255, 255, 255));
         NotEqualButton.setText("!=");
         NotEqualButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 51, 0), 3, true));
+        NotEqualButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NotEqualButtonActionPerformed(evt);
+            }
+        });
 
         MultiplicationButton.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         MultiplicationButton.setText("*");
@@ -211,6 +222,11 @@ public class Procal extends javax.swing.JFrame {
         EqualsButton.setForeground(new java.awt.Color(255, 255, 255));
         EqualsButton.setText("==");
         EqualsButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 51, 0), 3, true));
+        EqualsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EqualsButtonActionPerformed(evt);
+            }
+        });
 
         Parenthesis.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         Parenthesis.setText("()");
@@ -253,6 +269,11 @@ public class Procal extends javax.swing.JFrame {
         LTButton.setMaximumSize(new java.awt.Dimension(29, 25));
         LTButton.setMinimumSize(new java.awt.Dimension(29, 25));
         LTButton.setPreferredSize(new java.awt.Dimension(29, 25));
+        LTButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LTButtonActionPerformed(evt);
+            }
+        });
 
         NineButton.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         NineButton.setText("9");
@@ -326,6 +347,11 @@ public class Procal extends javax.swing.JFrame {
         LTEQButton.setForeground(new java.awt.Color(255, 255, 255));
         LTEQButton.setText("<=");
         LTEQButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 51, 0), 3, true));
+        LTEQButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LTEQButtonActionPerformed(evt);
+            }
+        });
 
         SixButton.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         SixButton.setText("6");
@@ -388,6 +414,11 @@ public class Procal extends javax.swing.JFrame {
         GTButton.setMaximumSize(new java.awt.Dimension(29, 25));
         GTButton.setMinimumSize(new java.awt.Dimension(29, 25));
         GTButton.setPreferredSize(new java.awt.Dimension(29, 25));
+        GTButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GTButtonActionPerformed(evt);
+            }
+        });
 
         ThreeButton.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         ThreeButton.setText("3");
@@ -450,6 +481,11 @@ public class Procal extends javax.swing.JFrame {
         GTEQButton.setForeground(new java.awt.Color(255, 255, 255));
         GTEQButton.setText(">=");
         GTEQButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 51, 0), 3, true));
+        GTEQButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GTEQButtonActionPerformed(evt);
+            }
+        });
 
         ModulusButton.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         ModulusButton.setText("%");
@@ -789,7 +825,7 @@ public class Procal extends javax.swing.JFrame {
     }//GEN-LAST:event_TwoButtonActionPerformed
 
     private void SubtrationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubtrationButtonActionPerformed
-        firstnum = Double.parseDouble(TextInput.getText());
+        firstnum = TextInput.getText();
         calculate =2;
         TextInput.setText("");
         Stored.setText(firstnum + "-");
@@ -808,14 +844,14 @@ public class Procal extends javax.swing.JFrame {
     }//GEN-LAST:event_FiveButtonActionPerformed
 
     private void AdditionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdditionButtonActionPerformed
-        firstnum = Double.parseDouble(TextInput.getText());
+        firstnum = TextInput.getText();
         calculate =1;
         TextInput.setText("");
         Stored.setText(firstnum + "+");
     }//GEN-LAST:event_AdditionButtonActionPerformed
 
     private void DivideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DivideButtonActionPerformed
-        firstnum = Double.parseDouble(TextInput.getText());
+        firstnum = TextInput.getText();
         calculate =4;
         TextInput.setText("");
         Stored.setText(firstnum + "/");
@@ -854,7 +890,7 @@ public class Procal extends javax.swing.JFrame {
     }//GEN-LAST:event_ParthesisAction
 
     private void MultiplicationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MultiplicationButtonActionPerformed
-        firstnum = Double.parseDouble(TextInput.getText());
+        firstnum = TextInput.getText();
         calculate =3;
         TextInput.setText("");
         Stored.setText(firstnum + "*");
@@ -887,28 +923,50 @@ public class Procal extends javax.swing.JFrame {
 
    
     private void LTButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LTButtonActionPerformed
-        firstnum = Double.parseDouble(TextInput.getText());
+        firstnum = TextInput.getText();
         TextInput.setText(" ");
         operation = "<";
+        Stored.setText(firstnum + " " + operation);
     }//GEN-LAST:event_LTButtonActionPerformed
 
     private void GTButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GTButtonActionPerformed
-        firstnum = Double.parseDouble(TextInput.getText());
+        firstnum = TextInput.getText();
         TextInput.setText(" ");
         operation = ">";
+        Stored.setText(firstnum + " " + operation);
     }//GEN-LAST:event_GTButtonActionPerformed
 
+    private void NotEqualButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotEqualButtonActionPerformed
+        // TODO add your handling code here:
+        firstnum = TextInput.getText();
+        TextInput.setText(" ");
+        operation = "!=";
+        Stored.setText(firstnum + " " + operation);
+    }//GEN-LAST:event_NotEqualButtonActionPerformed
+
+    private void EqualsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EqualsButtonActionPerformed
+        // TODO add your handling code here:
+        firstnum = TextInput.getText();
+        TextInput.setText(" ");
+        operation = "==";
+        Stored.setText(firstnum + " " + operation);
+    }//GEN-LAST:event_EqualsButtonActionPerformed
+
     private void GTEQButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GTEQButtonActionPerformed
-        firstnum = Double.parseDouble(TextInput.getText());
+        // TODO add your handling code here:
+        firstnum = TextInput.getText();
         TextInput.setText(" ");
         operation = ">=";
-    }
+        Stored.setText(firstnum + " " + operation);
+    }//GEN-LAST:event_GTEQButtonActionPerformed
 
     private void LTEQButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LTEQButtonActionPerformed
-        firstnum = Double.parseDouble(TextInput.getText());
+        // TODO add your handling code here:
+        firstnum = TextInput.getText();
         TextInput.setText(" ");
         operation = "<=";
-    }
+        Stored.setText(firstnum + " " + operation);
+    }//GEN-LAST:event_LTEQButtonActionPerformed
 
    
     public static void main(String args[]) {
