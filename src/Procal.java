@@ -41,6 +41,7 @@ public class Procal extends javax.swing.JFrame {
                 break;  
           
         }
+        calculate = 0;
     }
     
     public void relational_OP(){
@@ -63,6 +64,7 @@ public class Procal extends javax.swing.JFrame {
         else if (operation == "=="){
                 TextInput.setText(String.valueOf(firstnum == secondnum));
         }
+        operation = "";
     }
     public void assigment_OP(){
           switch(calculate1)
@@ -97,7 +99,8 @@ public class Procal extends javax.swing.JFrame {
                 break;
             
                 
-        }      
+        }
+          calculate1 = 0;
     }
     
     /**
